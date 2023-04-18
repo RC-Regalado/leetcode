@@ -6,15 +6,11 @@ using namespace std;
 class Solution {
 public:
     vector<int> runningSum(vector<int>& nums) {
-        vector<int> result(nums.size());
-        for (int i = 0; i < nums.size(); i++){
-            result[i] = 0;
-            for (int j = 0; j <= i; j++){
-                result[i] += nums[j];
-            }
+        for (int i = 1; i < nums.size(); i++){
+            nums[i] = nums[i-1];
         }
 
-        return result;
+        return nums;
     }
 };
 
