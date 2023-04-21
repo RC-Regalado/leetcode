@@ -1,16 +1,18 @@
 class Solution {
 public:
-    bool isPalindrome(int x) {
-        if (x < 0) return false;
-        int rev = 0;
-        int temp = x;
 
-        while (temp > 0){
-            int d = temp % 10;
-            rev = rev * 10 + d;
-            temp /= 10;
+    int reverse(int x)
+    {
+        unsigned result = 0;
+        while (x > 0)
+        {
+            result *= 10;
+            result += x % 10;
+            x /= 10;
         }
-
-        return x == rev;
+        return result;
+    }
+    bool isPalindrome(int x) {
+        return x >= 0 && reverse(x) == x;
     }
 };
